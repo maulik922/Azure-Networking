@@ -1,1 +1,0 @@
-﻿New-AzVirtualNetwork -Name v1 -ResourceGroupName netrwoking -Location 'West US 2' -AddressPrefix 10.0.0.0/16
