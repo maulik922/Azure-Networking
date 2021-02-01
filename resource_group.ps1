@@ -1,0 +1,1 @@
+﻿New-AzResourceGroup -name test-vnet -Location westus2
