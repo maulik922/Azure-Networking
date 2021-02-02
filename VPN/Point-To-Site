@@ -25,7 +25,7 @@ Step 4 > Second Certificat
           -CertStoreLocation "Cert:\CurrentUser\My" `
           -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 Step 5 > View the Certifict in local system 
-         Enter the commaned in Powershell certmgr
+         Enter the commaned in Powershell certmgr > persnol
 Step 6 > Right-click the Root certificate > All Task > export > Privat key no  > encode base 64x > save location and export 
 Step 7 > Open export file and select content and select and copy 
 Step 8 > Go to azure portal and go  VPN Getaway > point-to-site > configure > address pool 172.16.31.0/24 > Tunnel type IKEV2 and SSTP > Authentication type certificart > name > and past local fille contect and save 
