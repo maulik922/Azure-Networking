@@ -37,7 +37,4 @@ Step 6 > Right-click the Root certificate > All Task > export > Privat key no  >
 Step 7 > Open export file and select content and select and copy 
 Step 8 > Go to azure portal and go  VPN Getaway > point-to-site > configure > address pool 172.16.31.0/24 > Tunnel type IKEV2 and SSTP > Authentication type certificart > name > and past local fille contect and save 
 Step 9 > Download configration and install VPN 
-Steop 10 > connect the VPN and connect VM in azure  with loca ip 
-
-S
-       
+Steop 10 > connect the VPN and connect VM in azure  with local IP 
