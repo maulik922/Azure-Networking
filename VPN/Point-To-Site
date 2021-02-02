@@ -1,0 +1,43 @@
+Step 1 > Create a virtual network
+Step 2 > Create a VPN gateway
+          Name: VNet1GW
+          Region: East US
+          Gateway type: VPN
+          VPN type: Route-based
+          SKU: VpnGw1
+          Generation: Generation1
+          Virtual network: VNet1
+          Gateway subnet address range: 10.1.255.0/27
+          Public IP address: Create new
+          Public IP address name: VNet1GWpip
+          Enable active-active mode: Disabled
+          Configure BGP: Disabled
+Step 3 > Generate Certificat in a local system
+          Go to PowerShell and run the command for 
+          Root Certificate: $cert = New-SelfSignedCertificate 
+          -Type Custom -KeySpec Signature ` 
+          -Subject "CN=NameofyourRootCert"
+          -KeyExportPolicy Exportable `
+          -HashAlgorithm sha256 
+          -KeyLength 2048 `
+          -CertStoreLocation "Cert:\CurrentUser\My" 
+          -KeyUsageProperty Sign 
+          -KeyUsage CertSign
+Step 4 > Second Certificat 
+          Client Certificate: New-SelfSignedCertificate
+          -Type Custom -DnsName P2SChildCert -KeySpec Signature ` 
+          -Subject "CN=NameOfYourChildCert" -KeyExportPolicy Exportable`
+          -HashAlgorithm sha256 -KeyLength 2048 `
+          -CertStoreLocation "Cert:\CurrentUser\My" ` 
+          -Signer $cert
+          -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+Step 5 > View the Certifict in local system 
+         Enter the commaned in Powershell certmgr
+Step 6 > Right-click the Root certificate > All Task > export > Privat key no  > encode base 64x > save location and export 
+Step 7 > Open export file and select content and select and copy 
+Step 8 > Go to azure portal and go  VPN Getaway > point-to-site > configure > address pool 172.16.31.0/24 > Tunnel type IKEV2 and SSTP > Authentication type certificart > name > and past local fille contect and save 
+Step 9 > Download configration and install VPN 
+Steop 10 > connect the VPN and connect VM in azure  with loca ip 
+
+S
+       
